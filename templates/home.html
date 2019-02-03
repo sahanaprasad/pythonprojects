@@ -1,0 +1,35 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SALES</title>
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="container">
+<ol class="breadcrumb my-4">
+<li class="breadcrumb-item active">PRODUCTS</li>
+</ol>
+<table class="table">
+<thead class="thead-inverse">
+<tr>
+<th>PRODUCT ID</th>
+<th>PRODUCT NAME</th>
+<th>PRICE</th>
+<th>DETAILS</th>
+
+</tr>
+</thead>
+<tbody>
+ {% for p in ps %}
+
+ <tr> 
+ <td> {{ p.pno }}
+  </td>
+  <td class="align-middle"><a href="{%url 'client_details' p.pk %}">{{ p.pname }}</a></td> 
+  <td class="align-middle">{{ p.pcost}}</td> 
+  <td class="align-middle"><a href="{%url 'order_details' p.pk %}">order details</a></td>
+  
+  </tr>
+  {% endfor %} </tbody> </table> </div> </body> 
+</html>

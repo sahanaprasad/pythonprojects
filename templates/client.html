@@ -1,0 +1,40 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{ p.pname }}</title>
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="container">
+<ol class="breadcrumb my-4">
+<li class="breadcrumb-item"><a href="{%url 'home' %}">PRODUCTS</a></li>
+<li class="breadcrumb-item active">{{ p.pname }}</li>
+
+</ol>
+<table class="table">
+<thead class="thead-inverse">
+<tr>
+<th>Client ID</th>
+<th> NAME</th>
+<th>ADDRESS</th>
+<th>State</th>
+
+</tr>
+</thead>
+<tbody>
+ {% for i in p %}
+
+ <tr> 
+ <td> {{ i.ocid.cno }}
+  </td>
+  <td class="align-middle">{{ i.ocid.cname }}</td>
+<td class="align-middle">{{ i.ocid.cadd }}</td>  
+  <td class="align-middle">{{ i.ocid.cstate}}</td> 
+  
+  
+  </tr>
+  {% endfor %} </tbody> </table>
+</div>
+</body>
+</html>
